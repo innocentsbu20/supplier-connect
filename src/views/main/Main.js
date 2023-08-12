@@ -2,10 +2,11 @@ import React from 'react';
 import Header from '../../components/header/Header';
 
 export default function Main() {
-    
-    return(
+    const menuItems = ['Inventory', 'Specials Offers', 'Order History'];
+
+    return (
         <div>
-            <Header />
+            <Header menuItems={menuItems} />
             Main
         </div>
     )
