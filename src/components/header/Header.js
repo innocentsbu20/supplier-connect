@@ -39,14 +39,19 @@ function Header({ menuItems, isLogin = false }) {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = (route) => {
     setAnchorElNav(null);
+    if (route === 'Specials Offers') {
+      navigate('/offers')
+    } else if (route === 'Order History') {
+      navigate('/history')
+    }
   };
 
   const handleCloseUserMenu = (option) => {
 
     setAnchorElUser(null);
-    if (option == 'Logout') {
+    if (option === 'Logout') {
       navigate("/login");
     }
   };
@@ -143,7 +148,7 @@ function Header({ menuItems, isLogin = false }) {
               {menuItems.map((page) => (
                 <Button
                   key={page}
-                  onClick={handleCloseNavMenu}
+                  onClick={() => handleCloseNavMenu(page)}
                   sx={{ my: 2, color: 'white', display: 'block' }}
                 >
                   {page}
