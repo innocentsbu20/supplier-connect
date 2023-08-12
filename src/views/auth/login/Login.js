@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import './../Index.scss';
 import {
-    Box, Paper, Typography, TextField,
+    Box, Paper, Typography, TextField, Avatar,
     ToggleButton, ToggleButtonGroup, Button
 } from '@mui/material';
-import logo from './../../../assets/logo.png';
+import logo from './../../../assets/logo.svg';
 import { useNavigate } from "react-router-dom";
+import ImageLogo from '../../../components/svg-image/ImageLogo';
 
 export default function Login() {
     const [state, setState] = useState({
@@ -35,12 +36,11 @@ export default function Login() {
                         '& > :not(style)': {
                             m: 1,
                             width: 500,
-                            paddingTop: 4,
                         },
                     }}
-                >          <Paper elevation={3} className='content'  >
-                        <Box display='flex' justifyContent='center' alignItems='center'>
-                            <img alt='login log' className='avatar' src={logo} />
+                >          <Paper elevation={9} className='content'  >
+                        <Box justifyContent='center' alignItems='center'>
+                            <ImageLogo />
                             <Typography variant='h3' ml={1} fontFamily='sans-serif' fontWeight='bold' component='h2'>
                                 Login
                             </Typography>

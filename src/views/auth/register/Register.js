@@ -4,8 +4,8 @@ import {
     Box, Paper, Typography, TextField,
     ToggleButton, ToggleButtonGroup, Button
 } from '@mui/material';
-import logo from './../../../assets/logo.png';
 import { useNavigate } from "react-router-dom";
+import ImageLogo from '../../../components/svg-image/ImageLogo';
 
 export default function Register() {
     const [state, setState] = useState({
@@ -40,12 +40,11 @@ export default function Register() {
                         '& > :not(style)': {
                             m: 1,
                             width: 500,
-                            paddingTop: 4,
                         },
                     }}
-                >          <Paper elevation={3} className='content'  >
-                        <Box display='flex' justifyContent='center' alignItems='center'>
-                            <img alt='login log' className='avatar' src={logo} />
+                >          <Paper elevation={9} className='content'  >
+                        <Box justifyContent='center' alignItems='center'>
+                            <ImageLogo />
                             <Typography variant='h3' ml={1} fontFamily='sans-serif' fontWeight='bold' component='h2'>
                                 Register
                             </Typography>
