@@ -1,0 +1,32 @@
+@use './../../assets/styles/Variables.scss';
+
+.auth {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #fff;
+}
+
+.login-form {
+  width: 98%;
+  display: flex;
+  padding-right: 30px;
+  justify-content: flex-end;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.content {
+  margin: auto;
+}
+
+.avatar {
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  // font-size: large;
+}
