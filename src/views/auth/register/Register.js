@@ -11,7 +11,12 @@ export default function Register() {
     const [state, setState] = useState({
         username: 'minnieT',
         type: 'Supplier',
-        password: 'pass1@test'
+        password: 'pass1@test',
+        name: 'Thabiso',
+        surname: 'Sikhahlane',
+        id: 1234567891011,
+        email: 'minniet@test.com',
+        contact: '0123456789',
     });
 
     const handleChange = (event, newAlignment) => {
@@ -22,7 +27,7 @@ export default function Register() {
     };
     const navigate = useNavigate();
 
-    const { username, password, type } = state;
+    const { username, password, type, name, surname, id, email, contact } = state;
 
     return (
 
@@ -45,11 +50,11 @@ export default function Register() {
                                 Register
                             </Typography>
                         </Box>
-                        <Box my={3}>
+                        <Box my={2}>
                             <Box
                                 component="form"
                                 sx={{
-                                    '& .MuiTextField-root': { m: 1, width: '40ch' },
+                                    '& .MuiTextField-root': { m: 1, width: '80%' },
                                 }}
                                 noValidate
                                 autoComplete="off"
@@ -58,10 +63,49 @@ export default function Register() {
                                     <TextField
                                         required
                                         fullWidth
+                                        id="name"
+                                        label="Name"
+                                        defaultValue={name}
+                                    />
+                                    <TextField
+                                        required
+                                        fullWidth
+                                        id="surname"
+                                        label="Surname"
+                                        defaultValue={surname}
+                                    />
+                                    <TextField
+                                        required
+                                        fullWidth
                                         id="username"
                                         label="Username"
                                         defaultValue={username}
                                     />
+                                    <TextField
+                                        required
+                                        fullWidth
+                                        id="id"
+                                        label="ID"
+                                        defaultValue={id}
+
+                                    />
+                                    <TextField
+                                        required
+                                        fullWidth
+                                        id="email"
+                                        label="Email"
+                                        defaultValue={email}
+                                    />
+                                    <TextField
+                                        required
+                                        fullWidth
+                                        id="contact"
+                                        label="Contact"
+                                        defaultValue={contact}
+
+
+                                    />
+
                                     <ToggleButtonGroup
                                         color="standard"
                                         value={type}
@@ -80,20 +124,23 @@ export default function Register() {
                                         type="password"
                                         autoComplete="current-password"
                                         defaultValue={password}
+                                    />   <TextField
+                                        id="outlined-password-input"
+                                        label="Confirm Password"
+                                        fullWidth
+                                        // onChange={} TODO: HANDLE CONFIRM PASSWODN ENABLE REGISTER BUTTON
+                                        type="password"
+                                        autoComplete="current-password"
+                                        defaultValue=""
                                     />
                                 </div>
                             </Box>
-                            <Box display='flex' py={1} px={6} justifyContent='flex-end' alignItems='center'>
-                                <Typography onClick={() => navigate("/forgot")} className='pointer' variant='h6' component='h6'>
-                                    forgot password?
-                                </Typography>
-                            </Box>
-                            <Box display='flex' px={6} justifyContent='flex-end' alignItems='center'>
+                            <Box display='flex' px={6} py={1} justifyContent='flex-end' alignItems='center'>
                                 <Button onClick={() => navigate("/")} variant="outlined" color={'inherit'}>Register</Button>
                             </Box>
                             <Box display='flex' className='pointer' justifyContent='center' alignItems='center'>
-                                <Typography onClick={() => navigate("/register")} variant='button' component='h2'>
-                                    create account
+                                <Typography onClick={() => navigate("/login")} variant='button' component='h2'>
+                                    Sign into existing account
                                 </Typography>
                             </Box>
                         </Box>
