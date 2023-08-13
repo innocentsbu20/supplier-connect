@@ -7,6 +7,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import ImageLogo from '../../../components/svg-image/ImageLogo';
 import Header from '../../../components/header/Header';
+import { useUserStore } from '../../../store/Index';
 
 export default function Login() {
     const [state, setState] = useState({
@@ -14,7 +15,7 @@ export default function Login() {
         type: 'Supplier',
         password: 'pass1@test'
     });
-
+    const { login } = useUserStore((state) => state);
     const handleChange = (event, newAlignment) => {
         setState({
             ...state,
@@ -25,6 +26,11 @@ export default function Login() {
 
     const { username, password, type } = state;
     const menuItems = ['Products', 'About Us', 'Contact/Support', 'Blog/News'];
+    const handleLogin = () => {
+        // console.log(state)
+        login(state);
+        navigate("/");
+    }
 
     return (
         <>
@@ -91,7 +97,7 @@ export default function Login() {
                                     </Typography>
                                 </Box>
                                 <Box display='flex' px={6} justifyContent='flex-end' alignItems='center'>
-                                    <Button onClick={() => navigate("/")} variant="outlined" color={'inherit'}>Login</Button>
+                                    <Button onClick={handleLogin} variant="outlined" color={'inherit'}>Login</Button>
                                 </Box>
                                 <Box display='flex' className='pointer' justifyContent='center' alignItems='center'>
                                     <Typography onClick={() => navigate("/register")} variant='button' component='h2'>

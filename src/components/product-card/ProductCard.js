@@ -16,6 +16,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import sumsungDevice from '../../assets/images/Samsung Galaxy Z Fold 5 512GB Smartphone - Phantom Black + Samsung 25W Charger.jpg';
+import { useProductStore } from '../../store/Index';
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -30,22 +31,49 @@ const ExpandMore = styled((props) => {
 
 export default function ProductViewCard({ item }) {
 
-    const [state, setState] = useState(item);
-    const {
-        index = 0,
-        name = "Samsung Galaxy Z Fold 5 512GB Smartphoner",
-        published = "2014-02-06T04:40:25 -02:00",
-        about = "Samsung Galaxy Z Flip5 and Galaxy Z Fold5: Delivering Flexibility and Versatility Without Compromise",
-        description = "With an innovative form factor enhanced by new Flex Hinge for a balanced design.",
-        expanded = false
-    } = state
+    const [state, setState] = useState({
+        ...item,
+        expanded: false,
+    });
+
     const handleExpandClick = () => {
-        console.log("expanded ", expanded)
         setState({
             ...state,
             expanded: !state.expanded
         });
     };
+
+    const { addToPromo, removeFromPromo } = useProductStore((state) => state);
+    const handleAddToPromo = () => {
+        if (!state.isSpecial) {
+            const promoProduct = {
+                ...state,
+                isSpecial: true
+            };
+            setState(promoProduct);
+            addToPromo(promoProduct);
+        }
+    }
+    const handleRemoveFromPromo = () => {
+        if (state.isSpecial) {
+            const productToBeRomoved = {
+                ...state,
+                isSpecial: false
+            };
+            setState(productToBeRomoved);
+            removeFromPromo(productToBeRomoved);
+        }
+    }
+    const {
+        index,
+        name,
+        published,
+        price,
+        description,
+        expanded,
+        isSpecial
+
+    } = state;
 
     return (
         <Card sx={{ maxWidth: 345 }}>
@@ -55,8 +83,8 @@ export default function ProductViewCard({ item }) {
                     minHeight: '60px',
                 }}
                 avatar={
-                    <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                        {index + 1}
+                    <Avatar sx={{ bgcolor: red[500], fontSize: 12 }} aria-label="badge">
+                        {isSpecial ? '15%' : index + 1}
                     </Avatar>
                 }
                 action={
@@ -80,21 +108,35 @@ export default function ProductViewCard({ item }) {
                 image={sumsungDevice}
                 alt="Device"
             />
-            <CardContent>
-                <Typography sx={{
-                    display: '-webkit-box',
-                    overflow: 'hidden',
-                    WebkitBoxOrient: 'vertical',
-                    WebkitLineClamp: 3,
-                }} variant="body2" color="text.secondary">
-                    {about}
+            <CardContent sx={{ minHeight: 55 }}>
+                <Typography
+
+                    sx={{
+                        textDecoration: isSpecial ? 'line-through' : 'none',
+                        fontSize: 20,
+                        color: 'green',
+                        fontWeight: 'bold',
+                    }} variant="body2" color="text.secondary">
+                    {`R${price}`}
                 </Typography>
+                {
+                    isSpecial &&
+                    <Typography
+
+                        sx={{
+                            fontSize: 20,
+                            color: 'red',
+                            fontWeight: 'bold',
+                        }} variant="body2" color="text.secondary">
+                        {`R${(price - (price * 0.15).toFixed(2))}`}
+                    </Typography>
+                }
             </CardContent>
             <CardActions disableSpacing>
-                <IconButton aria-label="add to favorites">
-                    <FavoriteIcon />
+                <IconButton component="button" onClick={handleAddToPromo} aria-label="add to favorites">
+                    <FavoriteIcon color={isSpecial ? 'error' : 'inherit'} />
                 </IconButton>
-                <IconButton aria-label="delete">
+                <IconButton component="button" onClick={handleRemoveFromPromo} aria-label="delete from favorites">
                     <DeleteIcon />
                 </IconButton>
                 <IconButton aria-label="share">

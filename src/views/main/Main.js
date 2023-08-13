@@ -1,35 +1,35 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import Header from '../../components/header/Header';
 import ConnectButtonGroup from '../../components/button-group/ButtonGroup';
 import ProductViewCard from '../../components/product-card/ProductCard';
 import AddBusinessIcon from '@mui/icons-material/AddBusiness';
-import data from './../../constants/Index';
 import IconButton from '@mui/material/IconButton';
+import { useProductStore } from '../../store/Index';
 
 export default function Main() {
     const menuItems = ['Inventory', 'Specials Offers', 'Order History'];
+    const products = useProductStore((state) => state.products);
     const [state, setState] = useState({
         filter: "All Inventory",
-        products: data
+        products
     })
-    const { filter, products } = state;
+    const { filter } = state;
     const onChangeFilter = (fl) => {
         if (fl !== filter) {
 
             setState({
                 ...state,
-                products: data.filter((product) => product.type === fl.toLowerCase())
+                products: products.filter((product) => product.type === fl.toLowerCase())
             })
         } else {
 
             setState({
                 filter,
-                products: data
+                products
             })
         }
     }
-
     return (
         <div>
             <Header menuItems={menuItems} />
