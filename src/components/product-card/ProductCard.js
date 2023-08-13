@@ -30,14 +30,21 @@ const ExpandMore = styled((props) => {
 
 export default function ProductViewCard({ item }) {
 
-    const [state, setState] = useState(item);
+    const [state, setState] = useState({
+        ...item,
+        expanded: false,
+        isSpecial: false
+    });
     const {
         index = 0,
         name = "Samsung Galaxy Z Fold 5 512GB Smartphoner",
         published = "2014-02-06T04:40:25 -02:00",
+        price = 0,
         about = "Samsung Galaxy Z Flip5 and Galaxy Z Fold5: Delivering Flexibility and Versatility Without Compromise",
         description = "With an innovative form factor enhanced by new Flex Hinge for a balanced design.",
-        expanded = false
+        expanded,
+        isSpecial
+
     } = state
     const handleExpandClick = () => {
         console.log("expanded ", expanded)
@@ -46,6 +53,15 @@ export default function ProductViewCard({ item }) {
             expanded: !state.expanded
         });
     };
+    const handleOnFavorite = () => {
+        console.log({ state })
+        if (!isSpecial) {
+            setState({
+                ...state,
+                isSpecial: true
+            })
+        }
+    }
 
     return (
         <Card sx={{ maxWidth: 345 }}>
@@ -55,8 +71,8 @@ export default function ProductViewCard({ item }) {
                     minHeight: '60px',
                 }}
                 avatar={
-                    <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                        {index + 1}
+                    <Avatar sx={{ bgcolor: red[500], fontSize: 12 }} aria-label="badge">
+                        {isSpecial ? '15%' : index + 1}
                     </Avatar>
                 }
                 action={
@@ -80,18 +96,32 @@ export default function ProductViewCard({ item }) {
                 image={sumsungDevice}
                 alt="Device"
             />
-            <CardContent>
-                <Typography sx={{
-                    display: '-webkit-box',
-                    overflow: 'hidden',
-                    WebkitBoxOrient: 'vertical',
-                    WebkitLineClamp: 3,
-                }} variant="body2" color="text.secondary">
-                    {about}
+            <CardContent sx={{minHeight: 55}}>
+                <Typography
+
+                    sx={{
+                        textDecoration: isSpecial ? 'line-through' : 'none',
+                        fontSize: 20,
+                        color: 'green',
+                        fontWeight: 'bold',
+                    }} variant="body2" color="text.secondary">
+                    {`R${price}`}
                 </Typography>
+                {
+                    isSpecial && 
+                    <Typography
+                    
+                    sx={{
+                        fontSize: 20,
+                    color: 'red',
+                    fontWeight: 'bold',
+                }} variant="body2" color="text.secondary">
+                    {`R${(price - (price * 0.15).toFixed(2))}`}
+                </Typography>
+                }
             </CardContent>
             <CardActions disableSpacing>
-                <IconButton aria-label="add to favorites">
+                <IconButton component="button" onClick={handleOnFavorite} aria-label="add to favorites">
                     <FavoriteIcon />
                 </IconButton>
                 <IconButton aria-label="delete">

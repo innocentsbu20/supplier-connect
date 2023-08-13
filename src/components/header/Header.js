@@ -45,6 +45,8 @@ function Header({ menuItems, isLogin = false }) {
       navigate('/offers')
     } else if (route === 'Order History') {
       navigate('/history')
+    } else {
+      navigate('/')
     }
   };
 
