@@ -1,15 +1,19 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../../../components/header/Header';
-import data from '../../../constants/Index';
+// import data from '../../../constants/Index';
 import ConnectButtonGroup from '../../../components/button-group/ButtonGroup'
 import { Box } from '@mui/material';
 import ProductViewCard from '../../../components/product-card/ProductCard';
+import { useProductStore } from '../../../store/Index';
+
 export default function SpecialOffers() {
-    
+
     const menuItems = ['Inventory', 'Specials Offers', 'Order History'];
-       const [state, setState] = useState({
+    const { getItemsOnPromo } = useProductStore((state) => state);
+    const promotionProducts = getItemsOnPromo();
+    const [state, setState] = useState({
         filter: "All Offers",
-        products: data
+        products: promotionProducts
     })
     const { filter, products } = state;
     const onChangeFilter = (fl) => {
@@ -17,24 +21,24 @@ export default function SpecialOffers() {
 
             setState({
                 ...state,
-                products: data.filter((product) => product.type === fl.toLowerCase())
+                products: products.filter((product) => product.type === fl.toLowerCase())
             })
         } else {
 
             setState({
                 filter,
-                products: data
+                products
             })
         }
     }
 
     return (
         <div>
-            
+
             <Header menuItems={menuItems} />
-             <ConnectButtonGroup onChange={onChangeFilter} />
+            <ConnectButtonGroup onChange={onChangeFilter} />
             Special Offers
-                <div className='main background-image' >
+            <div className='main background-image' >
                 <Box sx={{
                     opacity: 1,
                     display: 'flex',
@@ -51,9 +55,9 @@ export default function SpecialOffers() {
 
                 </Box>
             </div>
-                    
-                
-            </div>
-        
+
+
+        </div>
+
     )
 }

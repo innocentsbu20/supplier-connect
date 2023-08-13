@@ -11,7 +11,8 @@ const data = [
         "about": "Labore eiusmod aliquip amet cupidatat non laborum officia et id quis nisi nostrud laborum. Eiusmod est duis ex adipisicing. Cupidatat duis aute elit mollit quis incididunt ullamco mollit sunt. Incididunt duis anim dolor enim sint fugiat do eu.\r\n",
         "description": "Aute consequat laborum esse ea eiusmod commodo id pariatur veniam reprehenderit ut Lorem. Officia nisi commodo enim sunt amet cillum dolore consectetur nostrud fugiat anim. Pariatur cupidatat fugiat labore voluptate veniam ea incididunt. Velit elit cupidatat adipisicing dolore quis in fugiat in.\r\n",
         "registered": "2021-08-11T09:29:17 -02:00",
-        "price": 41195.25
+        "price": 41195.25,
+        "isSpecial": false
     },
     {
         "_id": "64d7a6af10da0bf9c751babf",
@@ -24,7 +25,8 @@ const data = [
         "about": "Occaecat consectetur non officia deserunt eu reprehenderit nostrud exercitation occaecat anim excepteur sit. Esse aliquip non proident consectetur commodo ad culpa aliqua cupidatat elit. Nulla id nostrud consequat velit laboris cupidatat excepteur sunt esse aliquip esse.\r\n",
         "description": "In ea exercitation eiusmod incididunt. Officia quis enim ut eiusmod culpa dolor velit exercitation nostrud. Duis pariatur voluptate irure magna deserunt deserunt aliquip et sunt ea reprehenderit commodo. Laborum non veniam anim consequat do ipsum ea ea sit nostrud minim velit tempor. Ea cillum ex duis labore ipsum.\r\n",
         "registered": "2017-02-16T12:27:16 -02:00",
-        "price": 60061.26
+        "price": 60061.26,
+        "isSpecial": false
     },
     {
         "_id": "64d7a6af77bcad952dd791b4",
@@ -37,7 +39,8 @@ const data = [
         "about": "Nostrud est incididunt anim sit minim eiusmod et quis ipsum. Aliquip in fugiat fugiat cupidatat pariatur ex aliquip eu. Pariatur reprehenderit ad laboris qui. Dolor ad adipisicing pariatur nostrud amet anim. Reprehenderit qui cupidatat ut id amet eiusmod culpa. Reprehenderit in cupidatat consectetur veniam velit. Sint fugiat do eu pariatur ea exercitation.\r\n",
         "description": "Aliqua in irure anim ad non ex aliquip elit mollit ad exercitation excepteur. Ea velit ut magna esse commodo ex proident. Ea ullamco adipisicing aliqua culpa proident qui ipsum pariatur ipsum.\r\n",
         "registered": "2022-04-26T08:43:50 -02:00",
-        "price": 72773.2
+        "price": 72773.2,
+        "isSpecial": false
     },
     {
         "_id": "64d7a6af1e26a5fa72245fc9",
@@ -50,7 +53,8 @@ const data = [
         "about": "Fugiat est id aute commodo dolore commodo velit aliquip duis velit adipisicing. Nisi ea dolore id adipisicing ad consequat commodo aliqua elit non. In culpa occaecat laboris esse aliqua veniam deserunt sunt. Ut pariatur dolor Lorem ad tempor. Enim nisi deserunt proident excepteur non esse laborum aliqua Lorem consequat culpa et deserunt.\r\n",
         "description": "Cillum ad consectetur ex dolor ut veniam cillum consequat in. Ipsum incididunt et non proident. Ut laboris aute fugiat occaecat dolor duis ipsum voluptate mollit officia. Sint consequat non ex enim non labore eu.\r\n",
         "registered": "2015-07-10T08:38:11 -02:00",
-        "price": 35812.49
+        "price": 35812.49,
+        "isSpecial": false
     },
     {
         "_id": "64d7a6af822ed137b447492e",
@@ -63,7 +67,8 @@ const data = [
         "about": "Nostrud incididunt mollit deserunt enim do ad eiusmod pariatur et fugiat anim. Pariatur officia do do ea aute adipisicing minim incididunt cillum nulla. Anim eiusmod voluptate ullamco Lorem et duis cillum exercitation duis do excepteur exercitation consectetur. Proident tempor velit irure consequat enim sint. Adipisicing eu mollit culpa deserunt enim tempor. Occaecat non laboris pariatur pariatur Lorem duis dolor adipisicing sit laboris. Laborum minim dolore commodo et ea anim aute anim laboris culpa.\r\n",
         "description": "Dolor ex quis excepteur in consequat laboris id exercitation mollit. Consequat deserunt ad sint nostrud mollit non incididunt est. Tempor aliqua deserunt fugiat eu commodo aliquip elit non quis laboris. Pariatur sunt ad est id nostrud enim.\r\n",
         "registered": "2015-09-04T06:28:57 -02:00",
-        "price": 35902.03
+        "price": 35902.03,
+        "isSpecial": false
     },
     {
         "_id": "64d7a6af758563cc1f1494f5",
@@ -76,7 +81,8 @@ const data = [
         "about": "Culpa esse eu anim quis minim Lorem. Commodo quis Lorem culpa velit amet magna duis qui sint adipisicing cillum. Reprehenderit occaecat aliquip adipisicing dolor non amet nisi elit fugiat consectetur sint consectetur sint ad. Et minim proident ea Lorem quis non consectetur aute in pariatur.\r\n",
         "description": "In cillum nulla velit adipisicing deserunt laborum eiusmod nostrud consequat. Pariatur ipsum et eu eiusmod qui. Cupidatat pariatur ut nulla nisi minim Lorem aute aliqua reprehenderit non proident. Ipsum pariatur id est reprehenderit amet nostrud fugiat duis deserunt ex aute. Ea consectetur cupidatat ea elit Lorem commodo do cupidatat do voluptate eiusmod aliqua voluptate aliquip.\r\n",
         "registered": "2018-02-02T08:15:07 -02:00",
-        "price": 73922.6
+        "price": 73922.6,
+        "isSpecial": false
     },
     {
         "_id": "64d7a6afa012e9c30c47d637",
@@ -89,7 +95,8 @@ const data = [
         "about": "Velit cupidatat in laboris aliqua in nisi excepteur. Ullamco adipisicing cupidatat excepteur aute consectetur dolor veniam consectetur deserunt magna eu. Consequat quis et laborum incididunt nostrud non non nostrud dolore veniam veniam esse. Tempor occaecat magna elit exercitation minim qui laborum amet fugiat id mollit enim exercitation qui. Ut exercitation elit eu exercitation qui veniam Lorem labore anim labore nisi laborum excepteur quis. Dolore magna nisi mollit veniam sit esse ullamco tempor velit.\r\n",
         "description": "Officia do velit voluptate adipisicing adipisicing exercitation minim nulla nostrud ipsum commodo. Voluptate culpa officia voluptate non. Ex laborum laborum sunt pariatur. Mollit cillum ut deserunt consequat. Nisi non adipisicing consequat quis aliqua pariatur anim consectetur. Labore reprehenderit proident proident exercitation non cillum id aute in cillum quis sit.\r\n",
         "registered": "2021-07-17T08:49:06 -02:00",
-        "price": 22163.37
+        "price": 22163.37,
+        "isSpecial": false
     },
     {
         "_id": "64d7a6afbcc1268ec33fa213",
@@ -102,7 +109,8 @@ const data = [
         "about": "Nostrud irure dolor fugiat exercitation consequat deserunt ullamco quis cupidatat. Ex mollit eiusmod veniam enim sint exercitation ea cupidatat et cupidatat. Duis non in eiusmod ut id esse excepteur amet aliquip eiusmod qui consequat. Esse aliquip duis esse eiusmod consectetur nulla dolore et commodo occaecat pariatur aute non pariatur. Magna culpa quis labore et culpa.\r\n",
         "description": "Adipisicing esse ipsum eiusmod deserunt amet et exercitation mollit excepteur. Irure labore cillum adipisicing excepteur magna excepteur dolor qui in. Esse incididunt proident non sunt minim aliquip velit magna. Aute ad do proident et commodo in laboris commodo.\r\n",
         "registered": "2020-09-16T05:07:57 -02:00",
-        "price": 37712.57
+        "price": 37712.57,
+        "isSpecial": false
     },
     {
         "_id": "64d7a6af285b7795fdb1bd8c",
@@ -115,7 +123,8 @@ const data = [
         "about": "Cupidatat in culpa consequat exercitation commodo cupidatat nisi officia esse anim aliquip deserunt incididunt. Incididunt sint consequat aliquip quis aute pariatur. Eiusmod est enim est amet cupidatat pariatur fugiat commodo. Lorem commodo qui ea sunt enim minim occaecat laborum Lorem deserunt ad consectetur voluptate ullamco. Eiusmod officia aute velit eiusmod culpa consectetur in qui eiusmod. Culpa ea fugiat veniam commodo dolore occaecat nisi.\r\n",
         "description": "Irure sunt Lorem irure fugiat ut laborum quis sit aliquip commodo adipisicing ad. Ipsum ex excepteur qui eiusmod sit nulla et cillum. Fugiat et commodo esse sit Lorem. Amet pariatur laborum excepteur proident. Consequat incididunt eiusmod elit nulla do anim voluptate deserunt adipisicing dolore. Cillum laborum laboris ipsum nisi proident do culpa est irure quis veniam.\r\n",
         "registered": "2018-05-27T06:36:56 -02:00",
-        "price": 21660.35
+        "price": 21660.35,
+        "isSpecial": false
     },
     {
         "_id": "64d7a6af556b1b16ea83a531",
@@ -128,7 +137,8 @@ const data = [
         "about": "Laboris veniam ipsum laborum est officia eu. Pariatur velit excepteur reprehenderit consectetur cupidatat aliquip reprehenderit anim ullamco qui eu. Sint adipisicing enim veniam minim magna anim. Cillum est elit veniam quis consequat laborum voluptate est do elit id adipisicing commodo. Veniam duis elit magna et sint voluptate eiusmod eu voluptate labore irure non in. Ullamco labore irure minim consequat consectetur sunt est amet velit.\r\n",
         "description": "Nostrud qui exercitation ullamco cillum nulla quis Lorem incididunt. Sint eiusmod ad eu magna id magna sit commodo pariatur irure. In amet ex labore exercitation quis cillum. Deserunt amet incididunt consequat commodo duis non velit quis qui laboris est qui ex excepteur. Est ut Lorem magna voluptate culpa eu non occaecat eiusmod consectetur non. Dolor ad nulla Lorem dolore tempor tempor Lorem excepteur exercitation fugiat consequat nulla in.\r\n",
         "registered": "2021-06-27T09:13:51 -02:00",
-        "price": 60223.85
+        "price": 60223.85,
+        "isSpecial": false
     },
     {
         "_id": "64d7a6af3517718bd6b40ccf",
@@ -141,7 +151,8 @@ const data = [
         "about": "Sunt voluptate quis excepteur nisi ut tempor. Consectetur aliqua adipisicing pariatur duis anim dolor qui id adipisicing minim sit. Sunt laborum qui ex cillum minim.\r\n",
         "description": "Labore aliqua deserunt exercitation quis enim ut laboris esse amet deserunt excepteur Lorem ullamco. Pariatur veniam est aute consequat incididunt reprehenderit eu culpa occaecat nisi eu eu id ad. Labore veniam eiusmod dolore duis duis ut aliqua labore voluptate.\r\n",
         "registered": "2016-03-01T06:40:50 -02:00",
-        "price": 46700.17
+        "price": 46700.17,
+        "isSpecial": false
     },
     {
         "_id": "64d7a6af08ee19d320168b90",
@@ -154,7 +165,8 @@ const data = [
         "about": "Aute cillum laboris ad fugiat eu. Excepteur consequat id aute sint dolor incididunt sit et Lorem adipisicing cupidatat. Enim excepteur labore enim id laborum occaecat do duis qui. Incididunt commodo exercitation incididunt Lorem Lorem aute.\r\n",
         "description": "Voluptate voluptate Lorem mollit officia nisi labore laboris et consectetur. Amet do id ex ullamco do culpa consequat anim minim reprehenderit do esse tempor. Anim fugiat qui sint eu in adipisicing proident excepteur reprehenderit id dolor sit enim. Irure ullamco ipsum consectetur nulla occaecat consectetur reprehenderit amet commodo ut irure adipisicing cupidatat. Adipisicing proident dolore ullamco minim consectetur laboris sit incididunt pariatur qui elit aute exercitation. Enim laboris laboris excepteur dolore proident voluptate dolore voluptate eu excepteur deserunt cillum.\r\n",
         "registered": "2022-11-17T06:04:26 -02:00",
-        "price": 58219.1
+        "price": 58219.1,
+        "isSpecial": false
     },
     {
         "_id": "64d7a6af56bdc38a92a3173c",
@@ -167,7 +179,8 @@ const data = [
         "about": "Dolore adipisicing officia aliquip aliquip fugiat. Dolor dolore voluptate cupidatat commodo fugiat ad dolor anim deserunt ad. Consequat consequat eu do esse ex aliquip. Esse consequat elit nulla esse consequat ea quis Lorem Lorem do do ipsum cupidatat. Ex ipsum tempor quis duis id proident aute cupidatat proident cupidatat est eiusmod ea eiusmod. Reprehenderit ex qui veniam ipsum anim non est anim occaecat sunt culpa laborum. Deserunt do fugiat ut amet laboris proident exercitation et excepteur elit voluptate ea irure minim.\r\n",
         "description": "Culpa voluptate commodo eu sunt in dolor ullamco dolore magna sint non proident. Adipisicing voluptate ullamco non veniam adipisicing eu. Sint reprehenderit mollit fugiat elit dolore do id consequat voluptate id anim. Id aute aliquip ullamco officia nostrud minim id esse aliquip. Eu irure elit incididunt officia. Eiusmod sunt proident sint irure sit dolore elit officia veniam labore eu aliquip. Officia esse occaecat anim irure aliqua esse.\r\n",
         "registered": "2021-07-26T02:03:04 -02:00",
-        "price": 28257.23
+        "price": 28257.23,
+        "isSpecial": false
     },
     {
         "_id": "64d7a6af6101eb5c388b993f",
@@ -180,7 +193,8 @@ const data = [
         "about": "Ex exercitation deserunt ea ullamco anim nisi officia eiusmod occaecat aliqua. Magna et do pariatur eu proident elit consequat irure occaecat fugiat in aliquip. Ad nostrud aliqua dolor laboris elit irure nostrud laborum do adipisicing Lorem. Tempor sint officia sint laborum pariatur ullamco exercitation exercitation. Ad labore ut qui officia. Ipsum magna dolor ea consectetur ea Lorem magna deserunt exercitation aute ullamco in ut. Irure ea irure ullamco elit elit aliqua sit velit Lorem occaecat laborum ipsum consequat pariatur.\r\n",
         "description": "Anim laboris deserunt consectetur id exercitation sunt id in. Nostrud minim magna deserunt sunt adipisicing anim nisi officia ea sit voluptate adipisicing. Exercitation minim do ullamco mollit nisi. Eiusmod nostrud nulla occaecat reprehenderit aliquip anim eiusmod aliquip veniam nulla aute aliquip voluptate.\r\n",
         "registered": "2017-12-08T03:35:54 -02:00",
-        "price": 61508.19
+        "price": 61508.19,
+        "isSpecial": false
     },
     {
         "_id": "64d7a6af67da9972c193b191",
@@ -193,7 +207,8 @@ const data = [
         "about": "Sit do id nulla ut ut deserunt sit non est sunt ullamco nulla laboris consequat. Aliqua velit ad dolore mollit et qui ipsum minim ipsum aliqua reprehenderit. Excepteur voluptate dolor adipisicing consequat exercitation dolore do sit Lorem fugiat elit. Officia duis quis enim nisi ea exercitation pariatur in dolor eiusmod ipsum. Tempor fugiat sunt proident laboris eiusmod adipisicing.\r\n",
         "description": "Occaecat eu fugiat officia anim aliqua officia in labore proident occaecat. Tempor eu esse eu id occaecat aliqua. In sint nostrud esse elit cillum officia proident labore. Eiusmod sint culpa enim ullamco. Est nostrud voluptate ipsum labore aliquip sint non in ad consequat aliqua. Sit ipsum Lorem ullamco nostrud quis exercitation officia minim eiusmod. Nostrud culpa qui anim quis ullamco.\r\n",
         "registered": "2018-05-11T09:26:40 -02:00",
-        "price": 37494.95
+        "price": 37494.95,
+        "isSpecial": false
     },
     {
         "_id": "64d7a6af47d2bdff95766b3d",
@@ -206,7 +221,8 @@ const data = [
         "about": "Non do officia est exercitation Lorem. Esse cillum reprehenderit cillum id aliquip enim veniam magna amet. Ad culpa duis adipisicing nostrud do deserunt nostrud. Ea cillum dolor veniam voluptate do nulla est.\r\n",
         "description": "Qui do id laborum elit minim reprehenderit occaecat occaecat qui cillum ad consectetur. Ut ut dolor officia proident enim ea. Nostrud ullamco magna aliqua proident aliquip commodo nisi et id aute ea laboris laboris quis.\r\n",
         "registered": "2015-07-01T04:47:08 -02:00",
-        "price": 29587.23
+        "price": 29587.23,
+        "isSpecial": false
     },
     {
         "_id": "64d7a6af8392b0296a222537",
@@ -219,7 +235,8 @@ const data = [
         "about": "Cupidatat eu et eu laboris nulla esse proident magna reprehenderit elit esse adipisicing. Culpa consectetur ipsum nostrud duis aute. Dolor deserunt anim ex consectetur elit aute. Nostrud commodo commodo non cillum proident ipsum.\r\n",
         "description": "Nisi commodo tempor non veniam consectetur laboris esse veniam. Reprehenderit commodo cillum et nulla irure ullamco labore proident labore nostrud eu. Elit do eiusmod magna fugiat excepteur adipisicing commodo consequat aliqua eu velit mollit duis. Dolor voluptate ea exercitation exercitation enim aute incididunt exercitation fugiat velit aliquip. Labore deserunt esse veniam dolor cillum deserunt fugiat reprehenderit sunt proident. Elit pariatur adipisicing ea excepteur in exercitation proident elit eiusmod sit aliquip occaecat. Sunt ipsum sunt nisi laboris.\r\n",
         "registered": "2015-01-10T06:39:41 -02:00",
-        "price": 70761.28
+        "price": 70761.28,
+        "isSpecial": false
     },
     {
         "_id": "64d7a6af77b6d12cb84558be",
@@ -232,7 +249,8 @@ const data = [
         "about": "Elit ex consequat nulla veniam enim quis eu laborum occaecat ipsum laboris. Exercitation ex duis ut exercitation veniam deserunt cupidatat qui dolore ad excepteur. Mollit est non consequat et. Do dolore nisi aliqua do aliquip aliqua consequat magna. Sint sint ullamco do ut dolor. Aliqua ex velit laborum cupidatat magna veniam aliqua reprehenderit excepteur duis. Lorem quis ea nulla enim Lorem sit excepteur et.\r\n",
         "description": "Voluptate enim dolor cupidatat mollit. Ex nostrud quis cillum in duis fugiat. Ea minim nostrud ea sint adipisicing labore.\r\n",
         "registered": "2021-09-30T03:32:40 -02:00",
-        "price": 45911.56
+        "price": 45911.56,
+        "isSpecial": false
     },
     {
         "_id": "64d7a6afcfcf3ae5788f12cc",
@@ -245,7 +263,8 @@ const data = [
         "about": "Cupidatat anim nulla cillum laborum cupidatat anim minim ipsum officia do mollit aliquip nostrud mollit. Mollit veniam deserunt ullamco irure. Ad aliqua tempor aute nulla irure nisi ex consequat sint adipisicing ea reprehenderit excepteur labore. Ad minim irure veniam ipsum commodo ad labore mollit ex. Et mollit ipsum quis tempor magna Lorem id occaecat magna amet anim cillum eiusmod do. Do aliqua nostrud Lorem eiusmod irure quis pariatur nostrud.\r\n",
         "description": "Est aute ullamco fugiat nisi ut. Minim ut nostrud do ex ut minim sit fugiat non mollit. Anim reprehenderit cupidatat incididunt eiusmod voluptate Lorem dolore officia. Consectetur esse commodo ipsum sit laboris sit.\r\n",
         "registered": "2021-09-07T05:54:28 -02:00",
-        "price": 57546.45
+        "price": 57546.45,
+        "isSpecial": false
     },
     {
         "_id": "64d7a6afb9ab33811df16f15",
@@ -258,7 +277,8 @@ const data = [
         "about": "Do fugiat occaecat non ex. Non ipsum anim excepteur aliqua ea officia velit commodo dolore consectetur aliquip exercitation. Occaecat reprehenderit officia sint velit incididunt dolore enim esse aliquip in voluptate. Minim Lorem nulla irure dolor proident duis do duis velit fugiat officia ex magna consectetur.\r\n",
         "description": "Nostrud ut velit excepteur magna deserunt sunt amet exercitation non quis nostrud incididunt nisi commodo. Cupidatat enim reprehenderit pariatur adipisicing. Qui ipsum enim non aute dolor anim eu ullamco.\r\n",
         "registered": "2017-01-09T06:54:51 -02:00",
-        "price": 68875.92
+        "price": 68875.92,
+        "isSpecial": false
     },
     {
         "_id": "64d7a6af67a332425f308a9b",
@@ -271,7 +291,8 @@ const data = [
         "about": "Labore magna in sint sint consequat officia dolor ipsum ex labore amet anim ex. Laborum irure tempor velit mollit consequat irure nisi cupidatat sint voluptate dolor qui. Tempor laboris esse amet sit eu ad quis consectetur aliquip laboris ea cupidatat.\r\n",
         "description": "Sunt adipisicing est consequat et tempor reprehenderit veniam non sunt fugiat laboris ad dolore cupidatat. Aliqua fugiat aliqua quis commodo reprehenderit deserunt nulla adipisicing pariatur minim id veniam. Sint deserunt commodo et excepteur do enim aute fugiat dolor. Nisi eu nostrud deserunt enim est dolor proident ex occaecat eiusmod officia ea ullamco. Velit duis esse aliqua incididunt. Adipisicing consequat eu proident ipsum quis magna sunt fugiat sunt esse enim eiusmod.\r\n",
         "registered": "2015-03-06T10:09:43 -02:00",
-        "price": 32147.43
+        "price": 32147.43,
+        "isSpecial": false
     },
     {
         "_id": "64d7a6af4d902c57f7ca5f0c",
@@ -284,7 +305,8 @@ const data = [
         "about": "Elit nulla ullamco sint duis sint. Quis et minim quis reprehenderit cillum nulla enim tempor. Voluptate consectetur tempor laboris consectetur magna do Lorem voluptate. Deserunt eiusmod esse eu Lorem. Quis minim adipisicing id ipsum. Adipisicing duis nisi eiusmod voluptate excepteur ipsum deserunt consectetur veniam enim magna consequat.\r\n",
         "description": "Anim amet proident irure id elit labore. Dolor incididunt enim adipisicing deserunt adipisicing minim laborum. Aliqua commodo est dolore nulla qui minim sint. Dolore eiusmod aliquip exercitation aliqua officia eiusmod aute adipisicing tempor non deserunt esse velit. Sit sint cupidatat eu laboris consectetur laborum fugiat dolor consequat aliquip id. Aute ullamco veniam incididunt elit incididunt.\r\n",
         "registered": "2018-10-28T12:37:42 -02:00",
-        "price": 19039.64
+        "price": 19039.64,
+        "isSpecial": false
     },
     {
         "_id": "64d7a6af6bac99acd28dce5b",
@@ -297,7 +319,8 @@ const data = [
         "about": "Non ut aliqua quis reprehenderit adipisicing. Esse excepteur nulla ut elit. Laborum aliquip enim aute tempor aute mollit consequat est officia. Nisi culpa sint exercitation id in mollit aute fugiat sint.\r\n",
         "description": "Non culpa sunt do culpa dolore reprehenderit sit et proident ex. Fugiat id eu non sit amet minim quis. Est ut qui dolore anim esse amet sit laboris in laborum exercitation consectetur. Ullamco proident tempor incididunt voluptate elit nisi non occaecat. Incididunt exercitation irure anim nostrud consequat.\r\n",
         "registered": "2016-02-03T01:33:15 -02:00",
-        "price": 40839.84
+        "price": 40839.84,
+        "isSpecial": false
     },
     {
         "_id": "64d7a6aff719c854111bc752",
@@ -310,7 +333,8 @@ const data = [
         "about": "Qui cillum excepteur proident ad irure dolor ex velit ex et reprehenderit. Voluptate excepteur fugiat commodo ad ut ullamco. Sit duis Lorem in eu. Sint ut aliquip qui voluptate. Id non in exercitation enim veniam ex id cillum. Consectetur exercitation quis non in nostrud incididunt labore sunt adipisicing et id cupidatat irure. Cillum non reprehenderit eiusmod esse laborum quis sunt occaecat amet do ullamco duis.\r\n",
         "description": "Lorem proident ipsum sit laborum adipisicing deserunt ad aliquip ex nisi. Est mollit ex adipisicing reprehenderit. Aliqua commodo culpa excepteur eu.\r\n",
         "registered": "2016-08-20T06:01:09 -02:00",
-        "price": 30584.44
+        "price": 30584.44,
+        "isSpecial": false
     },
     {
         "_id": "64d7a6af4c8cb4207f8946d9",
@@ -323,7 +347,8 @@ const data = [
         "about": "Est ipsum quis reprehenderit ut est cillum amet aliqua irure duis est elit. Nulla ut sint nisi aliqua sunt culpa tempor aliqua ea cupidatat quis id nostrud irure. Voluptate nisi eu sit magna ex laborum nisi. Sit nostrud in sunt proident id sint culpa in esse incididunt. Elit dolore pariatur ut commodo duis nisi aute velit ipsum laborum magna in.\r\n",
         "description": "Lorem amet ut Lorem ullamco consectetur tempor dolor sunt ullamco amet. Veniam mollit deserunt est duis eu ea id adipisicing commodo dolore. Ipsum nostrud voluptate velit occaecat aliquip mollit exercitation adipisicing eiusmod duis minim. Amet pariatur esse mollit sunt commodo commodo amet in. Aute ex est voluptate consectetur dolore anim non ea adipisicing deserunt esse cillum quis. Labore cillum dolor sunt eiusmod do mollit dolore mollit do deserunt. Aliqua minim elit labore nisi.\r\n",
         "registered": "2018-05-01T11:31:06 -02:00",
-        "price": 31893.13
+        "price": 31893.13,
+        "isSpecial": false
     },
     {
         "_id": "64d7a6af17fc978af4f6bf56",
@@ -336,7 +361,8 @@ const data = [
         "about": "Id qui incididunt laborum veniam magna nostrud laborum fugiat nulla veniam eiusmod. Tempor qui excepteur minim cupidatat deserunt. Laboris reprehenderit commodo quis sint qui magna adipisicing dolor. Officia ipsum aute aliqua in. Eiusmod eu ea tempor occaecat esse eu excepteur dolore. Eiusmod nisi excepteur excepteur laborum in consectetur dolor consectetur fugiat consequat excepteur aute ex dolore. Ex tempor voluptate est ea sint officia adipisicing id ullamco.\r\n",
         "description": "Id do anim reprehenderit cupidatat veniam. Voluptate cupidatat elit amet sunt deserunt tempor cupidatat eiusmod ipsum incididunt adipisicing. Reprehenderit qui reprehenderit laborum enim occaecat sunt fugiat. Esse eiusmod enim nulla eiusmod laborum ullamco ut tempor cupidatat. Ea cillum ex Lorem id irure consequat anim proident ea in. Ex eu voluptate duis aliqua irure minim ipsum sunt. Ex exercitation magna tempor adipisicing amet aute esse elit proident anim voluptate reprehenderit laborum eiusmod.\r\n",
         "registered": "2022-05-08T07:59:41 -02:00",
-        "price": 36900.49
+        "price": 36900.49,
+        "isSpecial": false
     },
     {
         "_id": "64d7a6af5d53f579bd9dca15",
@@ -349,7 +375,8 @@ const data = [
         "about": "Enim ut velit quis esse nostrud eu quis. Et mollit id pariatur nostrud non amet laborum labore nisi reprehenderit qui. Eiusmod nisi minim eiusmod est sit.\r\n",
         "description": "Adipisicing magna minim sit voluptate aute laboris do excepteur occaecat incididunt ex excepteur elit aute. Eiusmod cillum commodo consequat in veniam ipsum ipsum velit veniam eiusmod quis. Nostrud cillum nostrud ullamco incididunt aute Lorem excepteur cillum tempor et do. Quis ut adipisicing consectetur velit. Cupidatat do deserunt veniam in elit. Excepteur mollit consectetur commodo ea ipsum deserunt nulla qui id laborum. Duis do culpa exercitation fugiat minim labore eu exercitation fugiat amet eiusmod amet Lorem in.\r\n",
         "registered": "2023-01-15T02:56:05 -02:00",
-        "price": 71014.83
+        "price": 71014.83,
+        "isSpecial": false
     },
     {
         "_id": "64d7a6afdc16ac12c31f6659",
@@ -362,7 +389,8 @@ const data = [
         "about": "Tempor proident dolore tempor officia. Ex nostrud non est minim id qui id. Sit quis nisi qui aute cillum irure consectetur qui excepteur.\r\n",
         "description": "Qui mollit esse proident Lorem ullamco. Sint in dolor sunt nostrud culpa culpa officia est aliquip ipsum minim aute nostrud anim. Irure deserunt sit incididunt id qui minim irure commodo aliquip in cillum velit. Irure minim nostrud dolore laborum esse. Excepteur eu velit deserunt irure do ut nisi cillum laboris exercitation nulla fugiat ullamco. Cupidatat id qui cillum Lorem laborum Lorem. Ea dolore id commodo quis fugiat ex labore nulla.\r\n",
         "registered": "2023-07-13T04:32:34 -02:00",
-        "price": 48906.25
+        "price": 48906.25,
+        "isSpecial": false
     },
     {
         "_id": "64d7a6afcf42d931b927a3ed",
@@ -375,7 +403,8 @@ const data = [
         "about": "Ullamco id adipisicing irure ex eu incididunt enim qui officia irure. In non quis eu eu id voluptate id deserunt. Dolore consequat cillum incididunt amet Lorem in dolor non velit ipsum dolore. Ex quis mollit ullamco et aute laborum labore deserunt ullamco. Ea quis enim nostrud exercitation in dolor minim. Velit id incididunt nostrud velit irure cupidatat cupidatat proident consectetur.\r\n",
         "description": "Dolor labore deserunt velit officia aliquip veniam duis ut aliquip dolore pariatur. Pariatur est deserunt dolore do do ad irure consectetur. Eiusmod tempor nulla id voluptate eu est excepteur adipisicing eiusmod.\r\n",
         "registered": "2015-05-05T11:19:50 -02:00",
-        "price": 73169.75
+        "price": 73169.75,
+        "isSpecial": false
     },
     {
         "_id": "64d7a6af518216a8a4fc8394",
@@ -388,7 +417,8 @@ const data = [
         "about": "Cillum pariatur aute magna quis occaecat incididunt tempor ex do adipisicing cupidatat officia. Occaecat sit consequat Lorem id sunt. Labore est ut ut qui consequat veniam proident nulla enim. In in excepteur aliquip quis sunt culpa sint deserunt ullamco laborum aliquip esse enim dolor. Id fugiat non enim ex proident duis. Duis reprehenderit Lorem voluptate laboris consectetur deserunt.\r\n",
         "description": "Esse fugiat qui adipisicing enim cillum anim in magna labore cupidatat nulla esse. Id et sit incididunt id deserunt qui excepteur magna laborum pariatur deserunt. Ipsum irure proident voluptate excepteur aliquip minim ad laboris laboris. Voluptate excepteur incididunt minim commodo deserunt id. Adipisicing ea eu culpa est dolore est proident ipsum.\r\n",
         "registered": "2018-01-27T05:17:59 -02:00",
-        "price": 46278.97
+        "price": 46278.97,
+        "isSpecial": false
     },
     {
         "_id": "64d7a6afd71f32453664c220",
@@ -401,7 +431,8 @@ const data = [
         "about": "Veniam reprehenderit voluptate ex tempor occaecat laborum voluptate exercitation incididunt ipsum aliquip fugiat. Dolor cillum nisi nostrud ipsum labore labore nulla esse. Est laboris anim est reprehenderit cupidatat culpa mollit. Excepteur culpa incididunt velit Lorem officia in dolore quis anim laborum amet esse. Sunt exercitation esse eiusmod elit consequat deserunt excepteur enim labore ipsum.\r\n",
         "description": "Ea sint occaecat culpa ex duis nostrud laboris. Ex id dolor nulla quis duis. Aute proident reprehenderit ipsum do esse mollit aliqua Lorem cupidatat do sint. Non eiusmod dolore labore ut velit do deserunt quis magna ex.\r\n",
         "registered": "2016-11-26T07:10:44 -02:00",
-        "price": 42366.06
+        "price": 42366.06,
+        "isSpecial": false
     },
     {
         "_id": "64d7a6af4491d25624a09c06",
@@ -414,7 +445,8 @@ const data = [
         "about": "Enim duis et deserunt duis et elit aliquip ea consectetur culpa cillum veniam aliquip non. Cupidatat magna ipsum voluptate dolor aliquip sit laborum esse laboris deserunt qui ex excepteur. Sunt quis ipsum incididunt in. Officia cillum do anim irure ex nostrud eu velit culpa ipsum. Officia fugiat commodo nostrud excepteur officia amet magna dolor cillum minim officia ea dolor aliquip. Dolor pariatur nostrud officia ad excepteur commodo. Aute eiusmod sint sint dolore ipsum tempor ea quis ut excepteur sit nisi Lorem.\r\n",
         "description": "Aliquip aliqua anim cupidatat reprehenderit ipsum aliquip proident ullamco dolor. Laborum et nisi eiusmod sunt occaecat laboris. Cillum non ex dolore do nostrud qui.\r\n",
         "registered": "2022-06-29T08:53:45 -02:00",
-        "price": 64397.74
+        "price": 64397.74,
+        "isSpecial": false
     },
     {
         "_id": "64d7a6afcb8ae554b1ae4fbd",
@@ -427,7 +459,8 @@ const data = [
         "about": "Officia deserunt laborum incididunt velit est adipisicing minim elit. Esse veniam aliquip deserunt consectetur culpa cupidatat amet laborum nisi. Aute sunt ea laborum minim ad sint quis. Nostrud sit incididunt quis magna dolor labore labore voluptate. Dolor dolor fugiat do nostrud commodo nostrud reprehenderit irure mollit eiusmod. Enim aute eu ea ullamco duis nostrud dolore pariatur ex non pariatur.\r\n",
         "description": "Eiusmod esse mollit adipisicing sit laborum sunt veniam exercitation excepteur. Ullamco fugiat consectetur ea amet. Aliquip in veniam nostrud duis labore non excepteur ex fugiat cupidatat eiusmod aliqua laborum. Pariatur enim sit ad sit.\r\n",
         "registered": "2017-11-10T07:39:35 -02:00",
-        "price": 49031.32
+        "price": 49031.32,
+        "isSpecial": false
     },
     {
         "_id": "64d7a6af5f0348ce61e13e44",
@@ -440,7 +473,8 @@ const data = [
         "about": "Ut ipsum sint quis dolore eiusmod commodo enim adipisicing adipisicing reprehenderit. Id occaecat labore sit eu mollit. Ad est culpa dolor sit aliquip exercitation. Ea consequat elit officia ullamco tempor nostrud est. Nisi consequat consectetur qui sunt eu adipisicing laborum deserunt incididunt.\r\n",
         "description": "Nisi laboris sit sit minim. Sit amet esse tempor deserunt magna exercitation. Ad id voluptate proident cupidatat in sunt occaecat magna quis culpa dolor ipsum. Amet ullamco proident esse ad aliquip occaecat in nulla do velit velit incididunt adipisicing tempor. Elit eu aliquip eu fugiat minim non. Nisi laboris deserunt amet qui duis aliquip aliqua est do.\r\n",
         "registered": "2014-02-06T04:40:25 -02:00",
-        "price": 35216.12
+        "price": 35216.12,
+        "isSpecial": false
     },
     {
         "_id": "64d7a6afa82f560d1a7233a6",
@@ -453,7 +487,8 @@ const data = [
         "about": "Do proident dolor aliqua anim deserunt elit. Esse irure ex mollit ea magna ad cillum labore officia eiusmod aute exercitation amet. Laboris sit dolore proident laboris voluptate. Officia commodo sit ut sunt nulla fugiat officia culpa magna. Anim adipisicing excepteur aliqua eiusmod voluptate velit duis non excepteur occaecat.\r\n",
         "description": "Nisi deserunt voluptate tempor et ex ad anim ad nostrud esse esse voluptate qui. Velit ad amet ullamco duis magna. Lorem eiusmod laboris do ea nisi labore fugiat eiusmod officia. Consequat minim minim pariatur amet laborum duis sint laborum. Et id non deserunt qui fugiat.\r\n",
         "registered": "2018-07-27T12:01:35 -02:00",
-        "price": 61024.46
+        "price": 61024.46,
+        "isSpecial": false
     }
 ]
 
