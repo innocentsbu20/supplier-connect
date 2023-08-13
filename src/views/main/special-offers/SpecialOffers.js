@@ -31,6 +31,12 @@ export default function SpecialOffers() {
             })
         }
     }
+    useEffect(() => {
+        setState({
+            ...state,
+            products: promotionProducts
+        })
+    }, [promotionProducts])
 
     return (
         <div>
