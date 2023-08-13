@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import Header from '../../components/header/Header';
 import ConnectButtonGroup from '../../components/button-group/ButtonGroup';
@@ -30,7 +30,6 @@ export default function Main() {
             })
         }
     }
-
     return (
         <div>
             <Header menuItems={menuItems} />

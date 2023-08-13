@@ -12,7 +12,7 @@ export default function SpecialOffers() {
     const { getItemsOnPromo } = useProductStore((state) => state);
     const promotionProducts = getItemsOnPromo();
     const [state, setState] = useState({
-        filter: "All Offers",
+        filter: "All Inventory",
         products: promotionProducts
     })
     const { filter, products } = state;
