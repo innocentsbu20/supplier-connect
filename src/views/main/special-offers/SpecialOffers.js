@@ -36,7 +36,7 @@ export default function SpecialOffers() {
             ...state,
             products: promotionProducts
         })
-    }, [promotionProducts])
+    }, [promotionProducts, state])
 
     return (
         <div>

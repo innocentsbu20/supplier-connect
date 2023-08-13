@@ -6,6 +6,7 @@ import ProductViewCard from '../../components/product-card/ProductCard';
 import AddBusinessIcon from '@mui/icons-material/AddBusiness';
 import IconButton from '@mui/material/IconButton';
 import { useProductStore } from '../../store/Index';
+import axios from 'axios';
 
 export default function Main() {
     const menuItems = ['Inventory', 'Specials Offers', 'Order History'];
@@ -30,6 +31,18 @@ export default function Main() {
             })
         }
     }
+    const headers = {
+        'Content-Type': 'application/json',
+        'Authorization': 'AuthStr'
+    }
+    const getProducts = () => axios.get("http://localhost:3306/api/get", { headers: headers }).then((data) => {
+        console.log("data", data);
+    }).catch(error => console.log("error", error));
+    useEffect(() => {
+        console.log("log");
+        getProducts()
+    }, [])
+
     return (
         <div>
             <Header menuItems={menuItems} />
