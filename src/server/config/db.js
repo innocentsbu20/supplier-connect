@@ -1,10 +1,14 @@
-import { createConnection } from 'mysql';
+const sql = require('mssql');
 
-const db = createConnection({
+const db = sql.createConnection({
     host: "localhost",
-    user: "root",
-    password: "Thabiso@310",
-    database: "supplierconnectdb"
+    user: "THABISO\\Thabiso",
+    password: "",
+    database: "supplierconnectdb",
+    port: 3306
+});
+db.connect((error) => {
+    if (error) throw new Error(error)
 })
 
-export default db;
+module.exports = db;
