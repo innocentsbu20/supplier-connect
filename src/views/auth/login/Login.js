@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './../Index.scss';
 import {
     Box, Paper, Typography, TextField,
@@ -8,12 +8,14 @@ import { useNavigate } from "react-router-dom";
 import ImageLogo from '../../../components/svg-image/ImageLogo';
 import Header from '../../../components/header/Header';
 import { useUserStore } from '../../../store/Index';
+// const _ = require('lodash')
 
 export default function Login() {
     const [state, setState] = useState({
         username: 'minnieT',
         type: 'Supplier',
-        password: 'pass1@test'
+        password: 'pass1@test',
+        loginResponse: null
     });
     const { login } = useUserStore((state) => state);
     const handleChange = (event, newAlignment) => {
@@ -24,12 +26,25 @@ export default function Login() {
     };
     const navigate = useNavigate();
 
-    const { username, password, type } = state;
+    const { username, password, type, isLogged } = state;
     const menuItems = ['Products', 'About Us', 'Contact/Support', 'Blog/News'];
-    const handleLogin = () => {
+    const handleLogin = async () => {
         // console.log(state)
-        login(state);
-        navigate("/");
+        const res = login(state)
+
+        if (res) {
+
+            if (res.isSuccess)
+                setState({
+                    ...state,
+                    username: res.username,
+                    type: res.type,
+                    isLogged: res.isLogged
+                })
+        }
+        if (res) {
+            navigate("/")
+        }
     }
 
     return (
@@ -66,6 +81,10 @@ export default function Login() {
                                         <TextField
                                             required
                                             fullWidth
+                                            onChange={(event) => setState({
+                                                ...state,
+                                                username: event.target.value
+                                            })}
                                             id="username"
                                             label="Username"
                                             defaultValue={username}
@@ -97,7 +116,7 @@ export default function Login() {
                                     </Typography>
                                 </Box>
                                 <Box display='flex' px={6} justifyContent='flex-end' alignItems='center'>
-                                    <Button onClick={handleLogin} variant="outlined" color={'inherit'}>Login</Button>
+                                    <Button onClick={() => handleLogin()} variant="outlined" color={'inherit'}>Login</Button>
                                 </Box>
                                 <Box display='flex' className='pointer' justifyContent='center' alignItems='center'>
                                     <Typography onClick={() => navigate("/register")} variant='button' component='h2'>

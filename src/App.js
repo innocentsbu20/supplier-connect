@@ -7,7 +7,6 @@ import "@fontsource/roboto/700.css";
 import Dashboard from "./navigation/Index";
 
 function App() {
-
   return (
     <div className="App">
       <Dashboard />

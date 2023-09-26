@@ -5,6 +5,7 @@ import {
     ToggleButton, ToggleButtonGroup, Button
 } from '@mui/material';
 import { useNavigate } from "react-router-dom";
+import { useUserStore } from '../../../store/Index';
 import ImageLogo from '../../../components/svg-image/ImageLogo';
 
 export default function Register() {
@@ -19,13 +20,23 @@ export default function Register() {
         contact: '0123456789',
     });
 
+    const { register, registerResponse } = useUserStore((state) => state);
+
     const handleChange = (event, newAlignment) => {
         setState({
             ...state,
             type: newAlignment
         });
     };
+
     const navigate = useNavigate();
+    const handleRegister = () => {
+        register(state)
+        if (registerResponse) {
+            navigate("/")
+            console.log(registerResponse.isSuccsess, " ---- ", registerResponse.message)
+        }
+    }
 
     const { username, password, type, name, surname, id, email, contact } = state;
 
@@ -135,7 +146,7 @@ export default function Register() {
                                 </div>
                             </Box>
                             <Box display='flex' px={6} py={1} justifyContent='flex-end' alignItems='center'>
-                                <Button onClick={() => navigate("/")} variant="outlined" color={'inherit'}>Register</Button>
+                                <Button onClick={handleRegister} variant="outlined" color={'inherit'}>Register</Button>
                             </Box>
                             <Box display='flex' className='pointer' justifyContent='center' alignItems='center'>
                                 <Typography onClick={() => navigate("/login")} variant='button' component='h2'>

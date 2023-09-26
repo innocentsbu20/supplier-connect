@@ -5,12 +5,14 @@ import ConnectButtonGroup from '../../components/button-group/ButtonGroup';
 import ProductViewCard from '../../components/product-card/ProductCard';
 import AddBusinessIcon from '@mui/icons-material/AddBusiness';
 import IconButton from '@mui/material/IconButton';
-import { useProductStore } from '../../store/Index';
-import axios from 'axios';
+import { useProductStore, useUserStore } from '../../store/Index';
+import { useNavigate } from 'react-router-dom';
 
 export default function Main() {
     const menuItems = ['Inventory', 'Specials Offers', 'Order History'];
     const products = useProductStore((state) => state.products);
+    const { loginResponse } = useUserStore(store => store);
+
     const [state, setState] = useState({
         filter: "All Inventory",
         products
@@ -33,14 +35,14 @@ export default function Main() {
     }
     const headers = {
         'Content-Type': 'application/json',
-        'Authorization': 'AuthStr'
+        'Access-Control-Allow-Headers': '*',
+        'Authorization': 'Windows Athentication'
     }
-    const getProducts = () => axios.get("http://localhost:3306/api/get", { headers: headers }).then((data) => {
-        console.log("data", data);
-    }).catch(error => console.log("error", error));
+    const navigate = useNavigate();
+
     useEffect(() => {
-        console.log("log");
-        getProducts()
+        // console.log("log");
+        // getUsers()
     }, [])
 
     return (
