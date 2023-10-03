@@ -6,7 +6,7 @@ import NotFound from "../views/main/not-found/NotFound";
 import SpecialOffers from "../views/main/special-offers/SpecialOffers";
 import OrderHistory from "../views/main/order-history/OrderHistory";
 import { useUserStore } from '../store/Index';
-import ForgotPassword from "../views/auth/forgot_password/Forgot_Password";
+import ForgotPassword from "../views/auth/forgot-password/ForgotPassword";
 
 const Dashboard = () => {
   const { loginResponse } = useUserStore(store => store);
