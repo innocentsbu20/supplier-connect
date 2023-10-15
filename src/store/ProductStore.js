@@ -1,8 +1,14 @@
 import { create } from 'zustand'
-import data from '../constants/Index';
 
 const useProductStore = create((set, get) => ({
-    products: data,
+    products: [],
+    setProducts: (products) => set((state) => {
+        return ({
+            ...state,
+            products
+        })
+    }),
+    getProducts: () => get().products,
     addToPromo: (product) => set((state) => {
         state.products[product.index].isSpecial = true;
         return ({

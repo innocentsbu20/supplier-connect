@@ -7,10 +7,11 @@ import AddBusinessIcon from '@mui/icons-material/AddBusiness';
 import IconButton from '@mui/material/IconButton';
 import { useProductStore, useUserStore } from '../../store/Index';
 import { useNavigate } from 'react-router-dom';
+import { getProductsAPI } from '../../api/SupplierConnectAPI';
 
 export default function Main() {
     const menuItems = ['Inventory', 'Specials Offers', 'Order History'];
-    const products = useProductStore((state) => state.products);
+    const { products, setProducts } = useProductStore((state) => state);
     const { loginResponse } = useUserStore(store => store);
 
     const [state, setState] = useState({
@@ -20,10 +21,10 @@ export default function Main() {
     const { filter } = state;
     const onChangeFilter = (fl) => {
         if (fl !== filter) {
-
+            console.log("first", products[0].category)
             setState({
                 ...state,
-                products: products.filter((product) => product.type === fl.toLowerCase())
+                products: products.filter((product) => product.category === fl.toLowerCase())
             })
         } else {
 
@@ -41,8 +42,15 @@ export default function Main() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        // console.log("log");
-        // getUsers()
+        getProductsAPI().then((res) => {
+
+            setState(({
+                ...state,
+                products
+            }))
+            setProducts(res)
+        })
+
     }, [])
 
     return (
@@ -74,7 +82,7 @@ export default function Main() {
                     },
                 }}>
                     {
-                        products.map((item) => <ProductViewCard key={item._id} item={item} />)
+                        products.map((item) => <ProductViewCard key={item.productId} item={item} />)
                     }
 
                 </Box>
