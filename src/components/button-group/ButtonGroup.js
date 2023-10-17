@@ -39,9 +39,9 @@ export default function ConnectButtonGroup({ onChange }) {
             >
                 <ToggleButton value="All Inventory">All Inventory</ToggleButton>
                 <ToggleButton value="mobile">Mobile</ToggleButton>
-                <ToggleButton value="tablet">Tablets</ToggleButton>
-                <ToggleButton value="laptop">Laptops</ToggleButton>
-                <ToggleButton value="computer">Desktop Computers</ToggleButton>
+                <ToggleButton value="tablets">Tablets</ToggleButton>
+                <ToggleButton value="laptops">Laptops</ToggleButton>
+                <ToggleButton value="computers">Desktop Computers</ToggleButton>
             </ToggleButtonGroup>
         </Box >
     );

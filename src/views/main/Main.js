@@ -22,6 +22,10 @@ export default function Main() {
     const onChangeFilter = (fl) => {
         if (fl !== filter) {
             console.log("first", products[0].category)
+            console.log("2", products[1].category)
+            console.log("3", products[2].category)
+            console.log("first4", products[3].category)
+            console.log("5", products[0].category)
             setState({
                 ...state,
                 products: products.filter((product) => product.category === fl.toLowerCase())
@@ -56,7 +60,7 @@ export default function Main() {
     return (
         <div>
             <Header menuItems={menuItems} />
-            <ConnectButtonGroup onChange={onChangeFilter} />
+            <ConnectButtonGroup onChange={(flt) => onChangeFilter(flt)} />
             <Box sx={{
                 mb: 3,
                 display: 'flex',

@@ -7,18 +7,33 @@ import {
 import { useNavigate } from "react-router-dom";
 import { useUserStore } from '../../../store/Index';
 import ImageLogo from '../../../components/svg-image/ImageLogo';
+import { createUserAPI } from '../../../api/SupplierConnectAPI';
+import _ from 'lodash';
+import { encode } from 'base-64';
 
 export default function Register() {
     const [state, setState] = useState({
+        username: '',
+        type: '',
+        password: '',
+        name: '',
+        surname: '',
+        idNumber: 0,
+        email: '',
+        contact: 0,
+        confirmPassword: ''
+    } /*{
         username: 'minnieT',
         type: 'Supplier',
         password: 'pass1@test',
         name: 'Thabiso',
         surname: 'Sikhahlane',
-        id: 1234567891011,
+        idNumber: 1234567891011,
         email: 'minniet@test.com',
         contact: '0123456789',
-    });
+    }*/);
+
+
 
     const { register, registerResponse } = useUserStore((state) => state);
 
@@ -30,15 +45,75 @@ export default function Register() {
     };
 
     const navigate = useNavigate();
-    const handleRegister = () => {
-        register(state)
-        if (registerResponse) {
-            navigate("/")
-            console.log(registerResponse.isSuccsess, " ---- ", registerResponse.message)
+
+    const isValidForm = () => {
+        console.log("first ", state)
+        if (_.isEmpty(name)) {
+            alert("Name is Required")
+            return false
+        } else if (_.isEmpty(surname)) {
+            alert("Surname is Required")
+            return false
+        } else if (_.isEmpty(username)) {
+            alert("Username is Required")
+            return false
+        } else if (_.isEmpty(idNumber)) {
+            alert("Id is Required")
+            return false
+        } else if (_.isEmpty(email)) {
+            alert("Email is Required")
+            return false
+        } else if (_.isEmpty(contact)) {
+            alert("Contact is Required")
+            return false
+        } else if (_.isEmpty(type)) {
+            alert("Type is Required")
+            return false
+        } else if (!_.isEqual(password, confirmPassword)) {
+            alert("Confirm Password is not a Match")
+            return false
+        } else if (_.isEmpty(password)) {
+            alert("Password is Required")
+            return false
+        } else if (_.isEmpty(confirmPassword)) {
+            alert("Confirm Password is Required")
+            return false
         }
+
+        return true
+    };
+    const getCurrentDate = () => {
+        return encode(new Date().toISOString());
     }
 
-    const { username, password, type, name, surname, id, email, contact } = state;
+    const handleRegister = () => {
+        if (isValidForm()) {
+            createUserAPI({
+                username,
+                password,
+                type,
+                name,
+                surname,
+                idNumber,
+                email,
+                "location": "",
+                "createTime": new Date().toISOString(),
+                contact
+            }).then(res => {
+                if (res) {
+
+                    navigate("/")
+                } else {
+                    // Handle Create Error
+                }
+            })
+        }
+        // if (registerResponse) {
+        //     console.log(registerResponse.isSuccsess, " ---- ", registerResponse.message)
+        // }
+    }
+
+    const { username, password, type, name, surname, idNumber, email, contact, confirmPassword } = state;
 
     return (
 
@@ -75,28 +150,32 @@ export default function Register() {
                                         fullWidth
                                         id="name"
                                         label="Name"
-                                        defaultValue={name}
+                                        // defautValue={name}
+                                        onChange={(event) => setState({ ...state, name: event.target.value })}
                                     />
                                     <TextField
                                         required
                                         fullWidth
                                         id="surname"
                                         label="Surname"
-                                        defaultValue={surname}
+                                        // defautValue={surname}
+                                        onChange={(event) => setState({ ...state, surname: event.target.value })}
                                     />
                                     <TextField
                                         required
                                         fullWidth
                                         id="username"
                                         label="Username"
-                                        defaultValue={username}
+                                        // defautValue={username}
+                                        onChange={(event) => setState({ ...state, username: event.target.value })}
                                     />
                                     <TextField
                                         required
                                         fullWidth
                                         id="id"
                                         label="ID"
-                                        defaultValue={id}
+                                        // defautValue={id}
+                                        onChange={(event) => setState({ ...state, idNumber: event.target.value })}
 
                                     />
                                     <TextField
@@ -104,14 +183,16 @@ export default function Register() {
                                         fullWidth
                                         id="email"
                                         label="Email"
-                                        defaultValue={email}
+                                        // defautValue={email}
+                                        onChange={(event) => setState({ ...state, email: event.target.value })}
                                     />
                                     <TextField
                                         required
                                         fullWidth
                                         id="contact"
                                         label="Contact"
-                                        defaultValue={contact}
+                                        // defautValue={contact}
+                                        onChange={(event) => setState({ ...state, contact: event.target.value })}
 
 
                                     />
@@ -133,7 +214,8 @@ export default function Register() {
                                         fullWidth
                                         type="password"
                                         autoComplete="current-password"
-                                        defaultValue={password}
+                                        onChange={(event) => setState({ ...state, password: event.target.value })}
+                                    // defautValue={password}
                                     />   <TextField
                                         id="outlined-password-input"
                                         label="Confirm Password"
@@ -141,7 +223,8 @@ export default function Register() {
                                         // onChange={} TODO: HANDLE CONFIRM PASSWODN ENABLE REGISTER BUTTON
                                         type="password"
                                         autoComplete="current-password"
-                                        defaultValue=""
+                                        onChange={(event) => setState({ ...state, confirmPassword: event.target.value })}
+                                    // defaultValue=""
                                     />
                                 </div>
                             </Box>
