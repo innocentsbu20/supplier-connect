@@ -8,14 +8,18 @@ import { useNavigate } from "react-router-dom";
 import ImageLogo from '../../../components/svg-image/ImageLogo';
 import Header from '../../../components/header/Header';
 import { useUserStore } from '../../../store/Index';
+import { Authenticate } from '../../../api/SupplierConnectAPI';
 // const _ = require('lodash')
 
 export default function Login() {
     const [state, setState] = useState({
-        username: 'minnieT',
+        username: 'Thabiso',
         type: 'Supplier',
-        password: 'pass1@test',
-        loginResponse: null
+        password: 'mmm',
+        loginResponse: {
+            error: false,
+            message: ""
+        }
     });
     const { login } = useUserStore((state) => state);
     const handleChange = (event, newAlignment) => {
@@ -26,25 +30,34 @@ export default function Login() {
     };
     const navigate = useNavigate();
 
-    const { username, password, type, isLogged } = state;
+    const { username, password, type, loginResponse } = state;
     const menuItems = ['Products', 'About Us', 'Contact/Support', 'Blog/News'];
     const handleLogin = async () => {
         // console.log(state)
-        const res = login(state)
 
-        if (res) {
-
-            if (res.isSuccess)
+        await Authenticate({ username, password }).then(res => {
+            if (!res.error) {
+                login({
+                    isLogged: true,
+                    token: res.token,
+                    user: res.user
+                })
                 setState({
                     ...state,
-                    username: res.username,
-                    type: res.type,
-                    isLogged: res.isLogged
+                    loginResponse: {
+                        error: false,
+                        message: ""
+                    }
                 })
-        }
-        if (res) {
-            navigate("/")
-        }
+                console.log("first ", res, state)
+                navigate("/")
+            } else {
+                setState({
+                    ...state,
+                    loginResponse: res
+                })
+            }
+        })
     }
 
     return (
@@ -65,8 +78,15 @@ export default function Login() {
                             <Box justifyContent='center' alignItems='center'>
                                 <ImageLogo />
                                 <Typography variant='h3' ml={1} fontFamily='sans-serif' fontWeight='bold' component='h2'>
-                                    Login
+                                    {
+                                        "Login"
+                                    }
                                 </Typography>
+                                {loginResponse.error && <Typography variant='h6' ml={1} color="red" fontFamily='sans-serif' fontWeight='bold' component='h2'>
+                                    {
+                                        loginResponse.message
+                                    }
+                                </Typography>}
                             </Box>
                             <Box my={3}>
                                 <Box
@@ -104,6 +124,10 @@ export default function Login() {
                                             id="outlined-password-input"
                                             label="Password"
                                             fullWidth
+                                            onChange={(event) => setState({
+                                                ...state,
+                                                password: event.target.value
+                                            })}
                                             type="password"
                                             autoComplete="current-password"
                                             defaultValue={password}

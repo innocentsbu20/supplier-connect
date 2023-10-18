@@ -5,61 +5,15 @@ const useUserStore = create(
     persist(
         (set, get) => ({
             user: null,
-            users: [
-                {
-                    username: 'minnieT',
-                    type: 'Supplier',
-                    password: 'pass1@test',
-                    name: 'Thabiso',
-                    surname: 'Sikhahlane',
-                    id: 1234567891011,
-                    email: 'minniet@test.com',
-                    contact: '0123456789',
-                }
-            ],
-            loginResponse: null,
             registerResponse: null,
-            login: (user) => {
-                const existingUser = get().users.filter(usr => usr.username === user.username && usr.password === user.password)
-
-                if (existingUser.length) {
-                    get().loginResponse = {
-                        ...user,
-                        isLogged: true,
-                        isSuccsess: true,
-                        messgae: ""
-                    }
-                    set({
-                        ...get(),
-                        user,
-                    })
-                } else {
-                    get().loginResponse = {
-                        isLogged: false,
-                        isSuccsess: false,
-                        message: "User Does Not Exist"
-                    }
-                    set({
-                        ...get()
-                    })
-                }
-                return get().loginResponse
-            },
+            login: (user) =>
+                set({
+                    ...get(),
+                    user,
+                })
+            ,
             logout: () => set({
-                users: [
-                    {
-                        username: 'minnieT',
-                        type: 'Supplier',
-                        password: 'pass1@test',
-                        name: 'Thabiso',
-                        surname: 'Sikhahlane',
-                        id: 1234567891011,
-                        email: 'minniet@test.com',
-                        contact: '0123456789',
-                    }
-                ],
                 user: null,
-                loginResponse: null,
                 registerResponse: null
             }),
             register: (user) => {
@@ -78,7 +32,7 @@ const useUserStore = create(
                 } else {
                     console.log("user already exist")
                 }
-                return get().loginResponse
+                return get()
             }
         }),
         {
