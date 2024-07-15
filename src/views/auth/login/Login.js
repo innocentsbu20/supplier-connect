@@ -36,11 +36,14 @@ export default function Login() {
         // console.log(state)
 
         await Authenticate({ username, password }).then(res => {
-            if (!res.error) {
+            console.log("res");
+            if (res) {
+                const { authorizedUser } = res;
+                console.log("authorizedUser ", authorizedUser);
                 login({
                     isLogged: true,
-                    token: res.token,
-                    user: res.user
+                    token: authorizedUser.tokken,
+                    user: authorizedUser.user
                 })
                 setState({
                     ...state,

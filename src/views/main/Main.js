@@ -22,7 +22,7 @@ export default function Main() {
     const menuItems = ['Inventory', 'Specials Offers', 'Order History',];
     const { products, setProducts } = useProductStore((state) => state);
 
-    const { user } = useUserStore(store => store);
+    const user = useUserStore(store => store.user);
     const navigate = useNavigate();
 
     const [state, setState] = useState({
@@ -84,7 +84,8 @@ export default function Main() {
         createProductAPI(product)
     }
     useEffect(() => {
-        getProductsAPI().then((res) => {
+
+        getProductsAPI(user.token).then((res) => {
 
             setState(({
                 ...state,
@@ -92,7 +93,7 @@ export default function Main() {
             }))
             setProducts(res)
         })
-        GetCategories().then(res => setState({ ...state, categories: res }))
+        GetCategories(user.token).then(res => setState({ ...state, categories: res }))
     }, [])
     const handleChange = (cat) => {
         setState({ ...state, categoryId: cat.categoryId, category: cat.name })

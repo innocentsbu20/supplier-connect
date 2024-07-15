@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 /**
@@ -9,14 +8,17 @@ const baseURL = 'http://localhost:5067';
 const headers = {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Headers': '*',
-    'Authorization': 'Windows Athentication'
 }
 
 /*
  * Products
  */
-export async function getProductsAPI() {
-    const products = await axios.get(baseURL + '/products', { headers }).then(res => res.data)
+export async function getProductsAPI(tkkn) {
+    const authorizedHeaders = {
+        ...headers,
+        'Authorization': `Bearer ${tkkn}`
+    }
+    const products = await axios.get(baseURL + '/product/GetProducts', { headers: authorizedHeaders }).then(res => res.data)
         .catch((error) => {
             console.error('Error fetching data:', error);
         });
@@ -69,8 +71,13 @@ export async function Authenticate(userCredentials) {
 /*
  *  Category 
  */
-export async function GetCategories() {
-    const res = await axios.get(baseURL + '/categories', { headers }).then(res => res.data)
+export async function GetCategories(tkkn) {
+    const authedHeaders = {
+        ...headers,
+        'Authorization': `Bearer ${tkkn}`
+    };
+
+    const res = await axios.get(baseURL + '/category/getCategories', { headers: authedHeaders }).then(res => res.data)
         .catch((error) => {
             console.error('Error fetching data:', error);
         });
