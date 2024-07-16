@@ -13,9 +13,9 @@ import { Authenticate } from '../../../api/SupplierConnectAPI';
 
 export default function Login() {
     const [state, setState] = useState({
-        username: 'Thabiso',
+        email: 'john.doe@example.com',
         type: 'Supplier',
-        password: 'mmm',
+        password: 'password1',
         loginResponse: {
             error: false,
             message: ""
@@ -30,14 +30,14 @@ export default function Login() {
     };
     const navigate = useNavigate();
 
-    const { username, password, type, loginResponse } = state;
+    const { email, password, type, loginResponse } = state;
     const menuItems = ['Products', 'About Us', 'Contact/Support', 'Blog/News'];
     const handleLogin = async () => {
         // console.log(state)
 
-        await Authenticate({ username, password }).then(res => {
-            console.log("res");
-            if (res) {
+        await Authenticate({ email, password }).then(res => {
+            console.log("res ", res);
+            if (!res.error) {
                 const { authorizedUser } = res;
                 console.log("authorizedUser ", authorizedUser);
                 login({
@@ -52,7 +52,8 @@ export default function Login() {
                         message: ""
                     }
                 })
-                console.log("first ", res, state)
+                // console.log("first ", res, state)
+
                 navigate("/")
             } else {
                 setState({
@@ -106,11 +107,11 @@ export default function Login() {
                                             fullWidth
                                             onChange={(event) => setState({
                                                 ...state,
-                                                username: event.target.value
+                                                email: event.target.value
                                             })}
-                                            id="username"
-                                            label="Username"
-                                            defaultValue={username}
+                                            id="email"
+                                            label="email"
+                                            defaultValue={email}
                                         />
                                         <ToggleButtonGroup
                                             color="standard"
