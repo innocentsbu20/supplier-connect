@@ -18,7 +18,12 @@ export async function getProductsAPI(tkkn) {
         ...headers,
         'Authorization': `Bearer ${tkkn}`
     }
-    const products = await axios.get(baseURL + '/product/GetProducts', { headers: authorizedHeaders }).then(res => res.data)
+    const products = await axios.get(baseURL + '/product/GetProducts', { headers: authorizedHeaders }).then(res => {
+        if (res.data) {
+            return res.data
+        }
+        return [];
+    })
         .catch((error) => {
             console.error('Error fetching data:', error);
         });

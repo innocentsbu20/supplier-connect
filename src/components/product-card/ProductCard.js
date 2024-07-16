@@ -17,6 +17,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import sumsungDevice from '../../assets/images/Samsung Galaxy Z Fold 5 512GB Smartphone - Phantom Black + Samsung 25W Charger.jpg';
 import { useProductStore } from '../../store/Index';
+import { Box } from '@mui/material';
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -69,12 +70,13 @@ export default function ProductViewCard({ item }) {
         name,
         published,
         price,
+        picture,
         description,
         expanded,
         isSpecial
 
     } = state;
-
+    console.log("state", state)
     return (
         <Card sx={{ maxWidth: 345 }}>
             <CardHeader
@@ -102,12 +104,23 @@ export default function ProductViewCard({ item }) {
                 title={name}
                 subheader={published}
             />
-            <CardMedia
-                component="img"
-                height="194"
-                image={sumsungDevice}
-                alt="Device"
-            />
+            <Box style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: "center",
+                width: "100%"
+            }}>
+                <CardMedia
+                    component="img"
+                    height="194"
+                    style={{
+                        objectFit: "contain"
+                    }}
+                    image={picture}
+                    alt="Device"
+                />
+            </Box>
+
             <CardContent sx={{ minHeight: 55 }}>
                 <Typography
 

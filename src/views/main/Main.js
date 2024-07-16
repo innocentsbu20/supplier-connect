@@ -215,7 +215,7 @@ export default function Main() {
                     },
                 }}>
                     {
-                        products.map((item) => <ProductViewCard key={item.productId} item={item} />)
+                        products.map((item, index) => <ProductViewCard key={item.productId} item={{ ...item, index }} />)
                     }
 
                 </Box>
