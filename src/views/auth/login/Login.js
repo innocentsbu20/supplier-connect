@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import './../Index.scss';
 import {
     Box, Paper, Typography, TextField,
@@ -7,9 +7,8 @@ import {
 import { useNavigate } from "react-router-dom";
 import ImageLogo from '../../../components/svg-image/ImageLogo';
 import Header from '../../../components/header/Header';
-import { useUserStore } from '../../../store/Index';
-import { Authenticate } from '../../../api/SupplierConnectAPI';
-// const _ = require('lodash')
+import { useUserStore, useProductStore } from '../../../store/Index';
+import { Authenticate, getProductsAPI } from '../../../api/SupplierConnectAPI';
 
 export default function Login() {
     const [state, setState] = useState({
@@ -22,10 +21,12 @@ export default function Login() {
         }
     });
     const { login } = useUserStore((state) => state);
-    const handleChange = (event, newAlignment) => {
+    const { setProducts } = useProductStore((state) => state);
+
+    const handleChange = (event) => {
         setState({
             ...state,
-            type: newAlignment
+            type: event.target.value
         });
     };
     const navigate = useNavigate();
@@ -33,18 +34,17 @@ export default function Login() {
     const { email, password, type, loginResponse } = state;
     const menuItems = ['Products', 'About Us', 'Contact/Support', 'Blog/News'];
     const handleLogin = async () => {
-        // console.log(state)
 
         await Authenticate({ email, password }).then(res => {
-            console.log("res ", res);
-            if (!res.error) {
-                const { authorizedUser } = res;
-                console.log("authorizedUser ", authorizedUser);
+
+            if (res.status === 200) {
+                const { user, tokken } = res.user;
+
                 login({
-                    isLogged: true,
-                    token: authorizedUser.tokken,
-                    user: authorizedUser.user
+                    ...user,
+                    tokken,
                 })
+
                 setState({
                     ...state,
                     loginResponse: {
@@ -52,13 +52,15 @@ export default function Login() {
                         message: ""
                     }
                 })
-                // console.log("first ", res, state)
-
                 navigate("/")
             } else {
+                console.log(" June ", res)
                 setState({
                     ...state,
-                    loginResponse: res
+                    loginResponse: {
+                        error: true,
+                        message: res.status + ": Confirm if provided details are correct"
+                    }
                 })
             }
         })

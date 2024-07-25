@@ -15,7 +15,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 import logo from './../../assets/logo.svg';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { useNavigate } from "react-router-dom";
-import useUserStore from '../../store/UserStore';
+import { LOGOUT } from 'utils/Index';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Account', 'Logout'];
@@ -52,13 +52,15 @@ function Header({ menuItems, isLogin = false }) {
       navigate('/')
     }
   };
-  const logout = useUserStore(state => state.logout)
   const handleCloseUserMenu = (option) => {
 
     setAnchorElUser(null);
     if (option === 'Logout') {
-      logout();
+      LOGOUT();
       navigate("/login");
+    } else if (option === 'Account') {
+      LOGOUT();
+      navigate("/account");
     }
   };
 

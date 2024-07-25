@@ -76,7 +76,7 @@ export default function ProductViewCard({ item }) {
         isSpecial
 
     } = state;
-    console.log("state", state)
+
     return (
         <Card sx={{ maxWidth: 345 }}>
             <CardHeader

@@ -35,7 +35,7 @@ export default function Register() {
 
 
 
-    const { register, registerResponse } = useUserStore((state) => state);
+    const { } = useUserStore((state) => state);
 
     const handleChange = (event, newAlignment) => {
         setState({

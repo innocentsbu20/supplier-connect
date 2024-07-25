@@ -1,22 +1,21 @@
 import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import { ToggleButton, ToggleButtonGroup } from '@mui/material';
+import useProductStore from '../../store/ProductStore';
+import _ from 'lodash';
 
 export default function ConnectButtonGroup({ onChange }) {
 
-    const [state, setState] = useState({
-        activeToggle: 'All Inventory'
-    });
+    const [activeToggle, setActiveToggle] = useState(0);
 
-    const handleChange = (event, newAlignment) => {
-        onChange(newAlignment)
-        console.log("newAlignment ", newAlignment)
-        setState({
-            ...state,
-            activeToggle: newAlignment
-        });
+    const catetegories = useProductStore(state => state.getCategories())
+
+    const handleChange = (event) => {
+
+        const index = _.parseInt(event.target.value);
+        setActiveToggle(index);
+        onChange(index);
     };
-    const { activeToggle } = state;
 
     return (
         <Box
@@ -37,11 +36,10 @@ export default function ConnectButtonGroup({ onChange }) {
                 onChange={handleChange}
                 aria-label="Platform"
             >
-                <ToggleButton value="All Inventory">All Inventory</ToggleButton>
-                <ToggleButton value="mobile">Mobile</ToggleButton>
-                <ToggleButton value="tablets">Tablets</ToggleButton>
-                <ToggleButton value="laptops">Laptops</ToggleButton>
-                <ToggleButton value="computers">Desktop Computers</ToggleButton>
+                <ToggleButton key={0} value={0}>All Inventory</ToggleButton>
+                {
+                    catetegories.map(category => <ToggleButton key={category.categoryId} value={category.categoryId}>{category.name}</ToggleButton>)
+                }
             </ToggleButtonGroup>
         </Box >
     );

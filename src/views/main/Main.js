@@ -15,45 +15,42 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { GetCategories, createProductAPI, getProductsAPI } from '../../api/SupplierConnectAPI';
+import { getProductsAPI, createProductAPI } from '../../api/SupplierConnectAPI';
+import { getCategoriesAPI } from 'api/Category'
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 
 export default function Main() {
     const menuItems = ['Inventory', 'Specials Offers', 'Order History',];
-    const { products, setProducts } = useProductStore((state) => state);
+    const { setProducts, getProducts, getCategories, setCategories } = useProductStore((state) => state);
 
     const user = useUserStore(store => store.user);
     const navigate = useNavigate();
 
     const [state, setState] = useState({
-        filter: "All Inventory",
-        products,
+        products: getProducts(),
         isAddProduct: false,
-        categories: [],
+        categories: getCategories(),
         picture: "",
-        pName: "",
+        name: "",
         category: "",
         description: "",
         price: 0,
         categoryId: "",
         stockQuantity: 0,
     })
-    const { filter, isAddProduct } = state;
+
+    const { categories, products, isAddProduct, category, categoryId } = state
     const onChangeFilter = (fl) => {
-        if (fl !== filter) {
-            console.log("2", products[1].category)
-            console.log("3", products[2].category)
-            console.log("first4", products[3].category)
-            console.log("5", products[0].category)
+
+        if (fl > 0) {
             setState({
                 ...state,
-                products: products.filter((product) => product.category === fl.toLowerCase())
+                products: getProducts().filter((product) => product.categoryId === _.parseInt(fl))
             })
         } else {
-
             setState({
-                filter,
-                products
+                ...state,
+                products: getProducts()
             })
         }
     }
@@ -67,38 +64,103 @@ export default function Main() {
         ...state,
         isAddProduct: false
     })
-    const handleAdd = () => {
+    const handleAdd = async () => {
+
         const product = {
-            userId: user.user.userId,
-            categoryId: state.categoryId,
-            picture: state.picture,
-            pName: state.pName,
-            category: state.category,
-            description: state.description,
-            price: state.price,
-            stockQuantity: state.stockQuantity,
-            isSpecial: false,
-            user: user.user
+            Picture: state.picture,
+            Name: state.name,
+            CategoryId: state.categoryId,
+            Category: null,
+            Description: state.description,
+            IsSpecial: false,
+            Price: state.price,
+            StockQuantity: state.stockQuantity,
+            DateAdded: new Date(),
+            UserId: user.userId,
+            User: {
+                balance: user.balance,
+                contact: user.contact,
+                email: user.email,
+                name: user.name,
+                orders: [
+                ],
+                password: user.password,
+                ratings: user.ratings,
+                said: user.said,
+                surname: user.surname,
+                type: user.type,
+                cart: null,
+                userProducts: [
+                ]
+            },
+            OrderItems: [],
+            UserProducts: [],
+            Carts: []
         }
-        console.log("first", product)
-        createProductAPI(product)
+
+        await createProductAPI(user.tokken, product).then(res => {
+            if (res.status === 200) {
+                const newProds = [
+                    ...getProducts(),
+                    res.product
+                ];
+                console.log("newProds", newProds);
+                setProducts(newProds);
+                setState({
+                    ...state,
+                    products: newProds
+                });
+                handleClose();
+            }
+        })
+    }
+
+    const isExpired = (statusCode) => {
+
+        if (statusCode === 401) {
+            navigate("/login");
+        }
     }
     useEffect(() => {
+        if (_.isEmpty(getCategories())) {
+            getCategoriesAPI(user.tokken).then(res => {
+                console.log("res--- ", res)
+                if (isExpired(res.status)) {
+                    return;
 
-        getProductsAPI(user.token).then((res) => {
+                }
+                if (res.status === 200) {
+                    setCategories(res.categories)
+                    setState(({
+                        ...state,
+                        categories: res.categories
+                    }))
+                }
+            })
+        }
 
-            setState(({
-                ...state,
-                products
-            }))
-            setProducts(res)
-        })
-        GetCategories(user.token).then(res => setState({ ...state, categories: res }))
-    }, [])
+        getProductsAPI(user.tokken).then((res) => {
+            if (res.status === 200) {
+                res.products.map(p =>
+                    p.category = {
+                        categoryId: categories[p.categoryId - 1].categoryId,
+                        name: categories[p.categoryId - 1].name
+                    }
+                )
+                setProducts(res.products);
+                setState(({
+                    ...state,
+                    products: res.products
+                }))
+            }
+        });
+
+    }, [categories])
+
     const handleChange = (cat) => {
-        setState({ ...state, categoryId: cat.categoryId, category: cat.name })
+        setState({ ...state, categoryId: cat.target.value, category: categories[cat.target.value - 1].name })
     }
-    const { categories } = state
+
     return (
         <div>
             <Header menuItems={menuItems} />
@@ -128,7 +190,7 @@ export default function Main() {
                                     margin="dense"
                                     id="name"
                                     label="Name"
-                                    onChange={(evt) => setState({ ...state, pName: evt.target.value })}
+                                    onChange={(evt) => setState({ ...state, name: evt.target.value })}
                                     type="text"
                                     fullWidth
                                     variant="outlined"
@@ -185,12 +247,13 @@ export default function Main() {
                                     <Select
                                         labelId="demo-simple-select-label"
                                         id="demo-simple-select"
-                                        value={state.category}
+                                        name={category}
+                                        value={categoryId}
                                         label="Category"
-                                        onChange={(res) => handleChange(res.target.value)}
+                                        onChange={(res) => handleChange(res)}
                                     >
                                         {
-                                            categories.map(cat => <MenuItem value={cat} key={cat.categoryId}>{cat.name}</MenuItem>)
+                                            categories.map(cat => <MenuItem value={cat.categoryId} key={cat.categoryId}>{cat.name}</MenuItem>)
                                         }
                                     </Select>
                                 </FormControl>
@@ -215,7 +278,7 @@ export default function Main() {
                     },
                 }}>
                     {
-                        products.map((item, index) => <ProductViewCard key={item.productId} item={{ ...item, index }} />)
+                        products.slice().reverse().map((item, index) => <ProductViewCard key={item.productId} item={{ ...item, index }} />)
                     }
 
                 </Box>

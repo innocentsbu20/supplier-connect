@@ -18,27 +18,42 @@ export async function getProductsAPI(tkkn) {
         ...headers,
         'Authorization': `Bearer ${tkkn}`
     }
-    const products = await axios.get(baseURL + '/product/GetProducts', { headers: authorizedHeaders }).then(res => {
-        if (res.data) {
-            return res.data
+    const res = await axios.get(baseURL + '/products/GetProducts', { headers: authorizedHeaders });
+    try {
+        console.log("res", res)
+        return {
+            status: res.status,
+            products: res.data
         }
-        return [];
-    })
-        .catch((error) => {
-            console.error('Error fetching data:', error);
-        });
-    return products
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        return {
+            status: error.response.status
+        }
+    }
 }
-export async function createProductAPI(product) {
-    const products = await axios.get(baseURL + '/products/CreateProduct', product, { headers }).then(res => res.data)
-        .catch((error) => {
-            console.error('Error fetching data:', error);
-        });
-    return products
+export async function createProductAPI(tokkn, product) {
+    const authedHeaders = {
+        ...headers,
+        'Authorization': `Bearer ${tokkn}`
+    };
+
+    const res = await axios.post(baseURL + '/products/CreateProduct', product, { headers: authedHeaders });
+    try {
+        console.log(" req ", product)
+        return {
+            status: res.status,
+            product: res.data.data
+        }
+    } catch (error) {
+        console.error('Error creating a product: ', error);
+        return {
+            status: error.response.status
+        }
+    };
 }
 
 export async function createUserAPI(user) {
-    console.log("Mnsn ", user)
     try {
         const response = await axios.post(baseURL + '/users/CreateUser', user, {
             headers
@@ -65,27 +80,17 @@ export async function Authenticate(userCredentials) {
         const res = await axios.post(baseURL + '/auth/authenticate', userCredentials, {
             headers
         });
-
-        return res.data
+        //console.log("Auth ", res)
+        return {
+            status: res.status,
+            user: res.data.data
+        }
 
     } catch (error) {
-        console.error('Network error:', error);
+        console.log('Network error:', error);
+        return {
+            status: error.response.status
+        }
     }
-}
-
-/*
- *  Category 
- */
-export async function GetCategories(tkkn) {
-    const authedHeaders = {
-        ...headers,
-        'Authorization': `Bearer ${tkkn}`
-    };
-
-    const res = await axios.get(baseURL + '/category/getCategories', { headers: authedHeaders }).then(res => res.data)
-        .catch((error) => {
-            console.error('Error fetching data:', error);
-        });
-    return res
 }
 
