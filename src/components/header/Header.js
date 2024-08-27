@@ -90,7 +90,7 @@ function Header({ menuItems, isLogin = false }) {
                 textDecoration: 'none',
               }}
             >
-              Supplier  Connect
+              Gadget Query
             </Typography>
 
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
